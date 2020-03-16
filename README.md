@@ -1,7 +1,7 @@
 Azure Firewall with Hub and Spoke model Simple Deployment
 =========================================================
 
-![Alt text](../supporting/diagram.jpg?raw=true "Diagram")
+![Alt text](../master/supporting/diagram.jpg?raw=true "Diagram")
 
 This code will quickly (usually within 15 mins) build a simple deployment of a hub and spoke architecture. In each spoke is n-tier subnets and a single Linux server which is configured with a simple web page showing the hostname and uptime. This helps if you wish to test load balancing, or just if you wish to test HTTP connections to the VMs. 
 
