@@ -11,7 +11,7 @@ This is designed for lab use, and further secutity hardening would be recommende
 
 ## Requirements
 
-* terraform core 0.12.n
+* terraform core `0.12.n`
 * tested with terraform AzureRM provider `2.0.0`
 * an authenticated connection to an azure subscription (or add service principal info to the azurerm provider block)
 
@@ -26,6 +26,8 @@ The key points and features are:
 - **Network Security Group Rules**: This deployment will automatically attach an NSG rule to the web subnets in each spoke network to allow SSH from the hub management subnet for both SSH and ICMP. Another NSG will allow SSH direct to the management VM, be aware of this, you may wish to disallow this and set up alternative methods to remote to the VM such as Azure Bastion, VPN or Expressroute. 
 
 - **Azure Firewall Configuration**: The firewall is configured with a Network Rule Collection which will allow spoke to spoke SSH connections. Port 80 is also permitted from the hub managmement VM to each spoke VM, which you can test using facilities such as curl. i.e curl 10.100.1.4 (if the IP for the spoke VM is 10.100.1.4). 
+
+- **Terraform Outputs**: The configuration will output the Azure firewall public FQDN, the hub management VM public FQDN, the private IP addresses of both the web VMs in each vnet spoke and also the username and password for all VMs. 
 
 Terraform Getting Started & Documentation
 -----------------------------------------
