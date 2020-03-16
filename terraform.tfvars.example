@@ -1,0 +1,60 @@
+// general variables 
+location               = "uksouth"
+
+// networking variables 
+networkrgname          = "networkRG"
+hub_vnet_name          = "hubvnet"
+spoke1_vnet_name       = "spoke1vnet"
+spoke2_vnet_name       = "spoke2vnet"
+
+// VM variables
+computergname          = "computeRG"
+hub_vm_hostname        = "hubvm"
+spoke1_vm_hostname     = "spoke1vmweb"
+spoke2_vm_hostname     = "spoke2vmweb"
+
+vm_size              = "Standard_DS2_V2"
+vm_admin_user        = "vmadmin"
+vm_admin_pwd         = " " // should be adequately complex
+
+// management nsg related variable entries 
+
+hub_nsg_rg_name    = "nsgRG"
+hub_mgmt_nsg_name  = "hub_mgmt_nsg"
+spoke_web_nsg_name = "spoke_web_nsg"
+
+
+hub_mgmt_rules     = [
+    {
+      name                        = "allow-ssh"
+      priority                    = "100"
+      direction                   = "Inbound"
+      access                      = "Allow"
+      protocol                    = "Tcp"
+      source_port_ranges          = "*"
+      source_address_prefix       = "*"
+      destination_port_ranges     = "22"
+      destination_address_prefix  = "*"
+      description                 = "Allow SSH to management subnet from any address"
+    }
+  ]
+
+ spoke_web_rules    = [
+    {
+      name                        = "allow-web"
+      priority                    = "100"
+      direction                   = "Inbound"
+      access                      = "Allow"
+      protocol                    = "Tcp"
+      source_port_ranges          = "*"
+      source_address_prefix       = "*"
+      destination_port_ranges     = "80"
+      destination_address_prefix  = "*"
+      description                 = "Allow web 80 to the spoke VMs"
+    }
+  ]
+
+  // route table entries
+
+  rt_table_rg_name    = "udr_rg"
+  spoke_rt_table_name = "spokeUDRtable"
