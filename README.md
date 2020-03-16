@@ -7,7 +7,7 @@ This code will quickly (usually within 15 mins) build a simple deployment of a h
 
 The resources are provisioned into a number of resource groups by resource type, for instance, compute, network etc. 
 
-This is designed for lab use, and further secutity hardening would be recommended if you wish to use this for any production workloads. This lab will provide you with the basic foundation in order to test and learn more about Azure Firewall. 
+This is designed for lab use, and further security hardening would be recommended if you wish to use this for any production workloads. This lab will provide you with the basic foundation in order to test and learn more about Azure Firewall. 
 
 ## Requirements
 
