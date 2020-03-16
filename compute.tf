@@ -43,7 +43,7 @@ module "linuxvmspoke2" {
   type_handler_version = "2.0"
  settings = <<SETTINGS
     {                         
-        "fileUris": ["https://raw.githubusercontent.com/sdcscripts/terraform-az-firewallnva/master/webserver.sh"],
+        "fileUris": ["https://raw.githubusercontent.com/sdcscripts/terraform-az-firewallnva/master/supporting/webserver.sh"],
         "commandToExecute": "bash webserver.sh"
  
     }
@@ -59,7 +59,7 @@ SETTINGS
   type_handler_version = "2.0"
  settings = <<SETTINGS
     {                         
-        "fileUris": ["https://raw.githubusercontent.com/sdcscripts/terraform-az-firewallnva/master/webserver.sh"],
+        "fileUris": ["https://raw.githubusercontent.com/sdcscripts/terraform-az-firewallnva/master/supporting/webserver.sh"],
         "commandToExecute": "bash webserver.sh"
  
     }
