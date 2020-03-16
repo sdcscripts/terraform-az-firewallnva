@@ -15,7 +15,7 @@ spoke2_vm_hostname     = "spoke2vmweb"
 
 vm_size              = "Standard_DS2_V2"
 vm_admin_user        = "vmadmin"
-// vm_admin_pwd         = "" // should be adequately complex - you should enter this here if you wish this to be automatic
+// vm_admin_pwd         = "" // should be adequately complex - uncomment and enter password here for auto reading at runtime
 
 // management nsg related variable entries 
 
