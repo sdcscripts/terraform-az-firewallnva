@@ -12,7 +12,7 @@ module "hubnetwork" {
 module "spoke1network" {
     source              = "./modules/networkbuild"
     vnet_name           = var.spoke1_vnet_name
-    resource_group_name = "${var.spoke1_vnet_name}-rg"
+    resource_group_name = "nvalab-${var.spoke1_vnet_name}-rg"
     location            = "uksouth"
     address_space       = "10.100.0.0/16"
     subnet_prefixes     = ["10.100.1.0/24", "10.100.2.0/24", "10.100.3.0/24"]
@@ -21,7 +21,7 @@ module "spoke1network" {
 module "spoke2network" {
     source              = "./modules/networkbuild"
     vnet_name           = var.spoke2_vnet_name
-    resource_group_name = "${var.spoke2_vnet_name}-rg"
+    resource_group_name = "nvalab-${var.spoke2_vnet_name}-rg"
     location            = "uksouth"
     address_space       = "10.200.0.0/16"
     subnet_prefixes     = ["10.200.1.0/24", "10.200.2.0/24", "10.200.3.0/24"]

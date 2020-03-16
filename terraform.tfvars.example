@@ -2,13 +2,13 @@
 location               = "uksouth"
 
 // networking variables 
-networkrgname          = "networkRG"
+networkrgname          = "nvalab-network-rg"
 hub_vnet_name          = "hubvnet"
 spoke1_vnet_name       = "spoke1vnet"
 spoke2_vnet_name       = "spoke2vnet"
 
 // VM variables
-computergname          = "computeRG"
+computergname          = "nvalab-compute-rg"
 hub_vm_hostname        = "hubvm"
 spoke1_vm_hostname     = "spoke1vmweb"
 spoke2_vm_hostname     = "spoke2vmweb"
@@ -19,7 +19,7 @@ vm_admin_user        = "vmadmin"
 
 // management nsg related variable entries 
 
-hub_nsg_rg_name    = "nsgRG"
+hub_nsg_rg_name    = "nvalab-nsg-rg"
 hub_mgmt_nsg_name  = "hub_mgmt_nsg"
 spoke_web_nsg_name = "spoke_web_nsg"
 
@@ -56,5 +56,5 @@ hub_mgmt_rules     = [
 
   // route table entries
 
-  rt_table_rg_name    = "udr_rg"
+  rt_table_rg_name    = "nvalab-udr-rg"
   spoke_rt_table_name = "spokeUDRtable"
