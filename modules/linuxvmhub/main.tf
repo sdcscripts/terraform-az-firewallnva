@@ -87,11 +87,6 @@ resource "azurerm_virtual_machine" "myterraformvm" {
 
     os_profile_linux_config {
         disable_password_authentication = false
-
-          ssh_keys {
-            path     = "/home/${var.adminusername}/.ssh/authorized_keys"
-            key_data = "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAzifemevf1+b1uvZdIso4e2JFt6d7XCuWEMVcswHfJOEA8mlCRHy5S4tuaoC8OMUXk3PgugG8qc3RLl0LATCfDP2Qioaok6T06kEF8tnmUUewW18MGQq03Y46GjaqgGndqBaL99N5fSHWyqRHu38LWprO3bd2j9PdZYlCOrIxTAScC0C5enqD6QF9NUHp11ZEwoFVhX5ih38TAC45GFHM0B8FYRYuQx7EblRisRiNoCQQeVdRT+0Z8I7+w7+gr4iVx38GRSpiu9J7x5xjj4RAV4z8RnljztDL6nYbUmfSAMxz5p/j9b3gZ9XKythlAqAJtuKee5pdkqPbAI/mc4hS2w== rsa-key-20191008"
-        }
     }
 
     boot_diagnostics {
