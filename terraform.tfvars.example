@@ -1,5 +1,5 @@
 // general variables 
-location               = "uksouth"
+location               = "eastus"
 
 // networking variables 
 networkrgname          = "nvalab-network-rg"
