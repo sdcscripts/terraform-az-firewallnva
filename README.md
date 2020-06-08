@@ -35,4 +35,3 @@ All documentation is available on the [Terraform website](http://www.terraform.i
 * [Intro](https://www.terraform.io/intro/index.html)
 * [Docs](https://www.terraform.io/docs/index.html)
 
-For any issues please open a Github issue above
