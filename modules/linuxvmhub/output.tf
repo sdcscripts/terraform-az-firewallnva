@@ -1,6 +1,6 @@
 output "vmnicip" {
-  description = "the ip address of the vm"  
-  value = azurerm_network_interface.myterraformnic.private_ip_address
+  description = "the ip address of the vm"
+  value       = azurerm_network_interface.myterraformnic.private_ip_address
 }
 
 output "public_ip_dns_name" {

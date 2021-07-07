@@ -11,7 +11,7 @@ module "hubmanagementvm" {
   vmpassword    = var.vm_admin_pwd
   adminusername = var.vm_admin_user
   vmsize        = var.vm_size
-   }
+}
 
 module "linuxvmspoke1" {
   source        = "./modules/linuxvmspoke"
@@ -22,7 +22,7 @@ module "linuxvmspoke1" {
   vmpassword    = var.vm_admin_pwd
   adminusername = var.vm_admin_user
   vmsize        = var.vm_size
-   }
+}
 
 module "linuxvmspoke2" {
   source        = "./modules/linuxvmspoke"
@@ -33,15 +33,15 @@ module "linuxvmspoke2" {
   vmpassword    = var.vm_admin_pwd
   adminusername = var.vm_admin_user
   vmsize        = var.vm_size
-   } 
+}
 
-  resource "azurerm_virtual_machine_extension" "spokevm1extension" {
+resource "azurerm_virtual_machine_extension" "spokevm1extension" {
   name                 = "hostname"
   virtual_machine_id   = module.linuxvmspoke1.id
   publisher            = "Microsoft.Azure.Extensions"
   type                 = "CustomScript"
   type_handler_version = "2.0"
- settings = <<SETTINGS
+  settings             = <<SETTINGS
     {                         
         "fileUris": ["https://raw.githubusercontent.com/sdcscripts/terraform-az-firewallnva/master/supporting/webserver.sh"],
         "commandToExecute": "bash webserver.sh"
@@ -49,15 +49,15 @@ module "linuxvmspoke2" {
     }
 SETTINGS
 
-  }
+}
 
-  resource "azurerm_virtual_machine_extension" "spokevm2extension" {
+resource "azurerm_virtual_machine_extension" "spokevm2extension" {
   name                 = "hostname"
   virtual_machine_id   = module.linuxvmspoke2.id
   publisher            = "Microsoft.Azure.Extensions"
   type                 = "CustomScript"
   type_handler_version = "2.0"
- settings = <<SETTINGS
+  settings             = <<SETTINGS
     {                         
         "fileUris": ["https://raw.githubusercontent.com/sdcscripts/terraform-az-firewallnva/master/supporting/webserver.sh"],
         "commandToExecute": "bash webserver.sh"
@@ -65,4 +65,4 @@ SETTINGS
     }
 SETTINGS
 
-  }
+}

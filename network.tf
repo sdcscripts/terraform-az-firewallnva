@@ -1,31 +1,31 @@
 // vnet creation 
 module "hubnetwork" {
-    source              = "./modules/networkbuild"
-    vnet_name           = var.hub_vnet_name
-    resource_group_name = "nvalab-${var.hub_vnet_name}-rg"
-    location            = "uksouth"
-    address_space       = "10.0.0.0/16"
-    subnet_prefixes     = ["10.0.1.0/26", "10.0.2.0/24", "10.0.3.0/24"]
-    subnet_names        = ["AzureFirewallSubnet", "ManagementSubnet", "SharedServices"]
+  source              = "./modules/networkbuild"
+  vnet_name           = var.hub_vnet_name
+  resource_group_name = "nvalab-${var.hub_vnet_name}-rg"
+  location            = var.location
+  address_space       = "10.0.0.0/16"
+  subnet_prefixes     = ["10.0.1.0/26", "10.0.2.0/24", "10.0.3.0/24"]
+  subnet_names        = ["AzureFirewallSubnet", "ManagementSubnet", "SharedServices"]
 }
 
 module "spoke1network" {
-    source              = "./modules/networkbuild"
-    vnet_name           = var.spoke1_vnet_name
-    resource_group_name = "nvalab-${var.spoke1_vnet_name}-rg"
-    location            = "uksouth"
-    address_space       = "10.100.0.0/16"
-    subnet_prefixes     = ["10.100.1.0/24", "10.100.2.0/24", "10.100.3.0/24"]
-    subnet_names        = ["WebTier", "LogicTier", "DatabaseTier"]
+  source              = "./modules/networkbuild"
+  vnet_name           = var.spoke1_vnet_name
+  resource_group_name = "nvalab-${var.spoke1_vnet_name}-rg"
+  location            = var.location
+  address_space       = "10.100.0.0/16"
+  subnet_prefixes     = ["10.100.1.0/24", "10.100.2.0/24", "10.100.3.0/24"]
+  subnet_names        = ["WebTier", "LogicTier", "DatabaseTier"]
 }
 module "spoke2network" {
-    source              = "./modules/networkbuild"
-    vnet_name           = var.spoke2_vnet_name
-    resource_group_name = "nvalab-${var.spoke2_vnet_name}-rg"
-    location            = "uksouth"
-    address_space       = "10.200.0.0/16"
-    subnet_prefixes     = ["10.200.1.0/24", "10.200.2.0/24", "10.200.3.0/24"]
-    subnet_names        = ["WebTier", "LogicTier", "DatabaseTier"]
+  source              = "./modules/networkbuild"
+  vnet_name           = var.spoke2_vnet_name
+  resource_group_name = "nvalab-${var.spoke2_vnet_name}-rg"
+  location            = var.location
+  address_space       = "10.200.0.0/16"
+  subnet_prefixes     = ["10.200.1.0/24", "10.200.2.0/24", "10.200.3.0/24"]
+  subnet_names        = ["WebTier", "LogicTier", "DatabaseTier"]
 }
 
 // nsg associations 
@@ -33,7 +33,7 @@ module "spoke2network" {
 resource "azurerm_subnet_network_security_group_association" "hub_management_nsg_association" {
   subnet_id                 = module.hubnetwork.vnet_subnets[1]
   network_security_group_id = azurerm_network_security_group.hub_mgmt_nsg.id
-  depends_on = [azurerm_firewall.hub]
+  depends_on                = [azurerm_firewall.hub]
   // This depends on will prevent a deadlock between nsg and nic\firewall - as per open issue 
   // https://github.com/terraform-providers/terraform-provider-azurerm/issues/2489
 }

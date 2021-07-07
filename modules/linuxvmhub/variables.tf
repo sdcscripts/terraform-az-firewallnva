@@ -14,13 +14,13 @@ variable "subnetid" {
 
 variable "vmsize" {
   description = "size of VM"
-  default = "Standard_DS2_v2"
+  default     = "Standard_DS2_v2"
 }
 
 variable "vmpassword" {
   description = "Password for the VM"
 }
 
-variable "adminusername"{
-   description = "Name of the admin account"
+variable "adminusername" {
+  description = "Name of the admin account"
 }
